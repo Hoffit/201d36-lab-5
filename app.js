@@ -112,10 +112,22 @@ Test this function by hand in the console to get it working, and when you think 
 // Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
 
+  //For fun, solve this using recursion!!!
+  //Another approach would have combined for loop with multiply function
+  //Internet suggests another approach; [1,2,3].reduce(function(acc, val) { return acc * val; });
+  console.log(multArr);
+  var productValue = multArr[0];
+  if(multArr.length>1) {
+    productValue = multiply(multArr[0], (multiplyArray(multArr.slice(1,multArr.length)))[0])[0];
+  }
+
+  console.log(productValue);
+
+  return [productValue, 'The numbers '+multArr+' have a product of '+productValue+'.'];
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 
